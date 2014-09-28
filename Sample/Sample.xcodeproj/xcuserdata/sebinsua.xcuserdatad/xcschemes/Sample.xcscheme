@@ -9,15 +9,15 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5E69780519BB6D7B00DFE5BC"
-               BuildableName = "Moya Integration Tests.xctest"
-               BlueprintName = "Moya Integration Tests"
-               ReferencedContainer = "container:Moya.xcodeproj">
+               BlueprintIdentifier = "5EAE5E3019BC0D8900F9D773"
+               BuildableName = "Sample.app"
+               BlueprintName = "Sample"
+               ReferencedContainer = "container:Sample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,45 +28,35 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5E69780519BB6D7B00DFE5BC"
-               BuildableName = "Moya Integration Tests.xctest"
-               BlueprintName = "Moya Integration Tests"
-               ReferencedContainer = "container:Moya.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5E69780519BB6D7B00DFE5BC"
-            BuildableName = "Moya Integration Tests.xctest"
-            BlueprintName = "Moya Integration Tests"
-            ReferencedContainer = "container:Moya.xcodeproj">
+            BlueprintIdentifier = "5EAE5E3019BC0D8900F9D773"
+            BuildableName = "Sample.app"
+            BlueprintName = "Sample"
+            ReferencedContainer = "container:Sample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
    <LaunchAction
-      selectedDebuggerIdentifier = ""
-      selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5E69780519BB6D7B00DFE5BC"
-            BuildableName = "Moya Integration Tests.xctest"
-            BlueprintName = "Moya Integration Tests"
-            ReferencedContainer = "container:Moya.xcodeproj">
+            BlueprintIdentifier = "5EAE5E3019BC0D8900F9D773"
+            BuildableName = "Sample.app"
+            BlueprintName = "Sample"
+            ReferencedContainer = "container:Sample.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -76,15 +66,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5E69780519BB6D7B00DFE5BC"
-            BuildableName = "Moya Integration Tests.xctest"
-            BlueprintName = "Moya Integration Tests"
-            ReferencedContainer = "container:Moya.xcodeproj">
+            BlueprintIdentifier = "5EAE5E3019BC0D8900F9D773"
+            BuildableName = "Sample.app"
+            BlueprintName = "Sample"
+            ReferencedContainer = "container:Sample.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

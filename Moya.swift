@@ -38,7 +38,7 @@ public class Moya {
         case URL
         case JSON
         case PropertyList(NSPropertyListFormat, NSPropertyListWriteOptions)
-        case Custom((NSURLRequest, [String: AnyObject]?) -> (NSURLRequest, NSError?))
+        case Custom((URLRequestConvertible, [String: AnyObject]?) -> (NSURLRequest, NSError?)) // Altered NSURlRequest in the first argument to URLRequestConvertible. Solved the error...
         
         func parameterEncoding() -> Alamofire.ParameterEncoding {
             switch self {
