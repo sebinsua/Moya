@@ -10,15 +10,15 @@ import Foundation
 import Alamofire
 
 /// Block to be executed when a request has completed.
-public typealias MoyaCompletion = (data: NSData?, statusCode: Int?, error: NSError?) -> ()
+public typealias MoyaCompletion = (data: NSData?, statusCode: Int?, response:NSURLResponse?, error: NSError?) -> ()
 
 /// General-purpose class to store some enums and class funcs.
 public class Moya {
     
     /// Represents an HTTP method.
     public enum Method {
-        case GET, POST, PUT, DELETE
-        
+        case GET, POST, PUT, DELETE, OPTIONS, HEAD, PATCH, TRACE, CONNECT
+
         func method() -> Alamofire.Method {
             switch self {
             case .GET:
@@ -29,10 +29,20 @@ public class Moya {
                 return .PUT
             case .DELETE:
                 return .DELETE
+            case .HEAD:
+                return .HEAD
+            case .OPTIONS:
+                return .OPTIONS
+            case PATCH:
+                return .PATCH
+            case TRACE:
+                return .TRACE
+            case .CONNECT:
+                return .CONNECT
             }
         }
     }
-    
+
     /// Choice of parameter encoding.
     public enum ParameterEncoding {
         case URL
@@ -107,20 +117,20 @@ public class MoyaProvider<T: MoyaTarget> {
         if (stubResponses) {
             switch endpoint.sampleResponse {
             case .Success(let statusCode, let data):
-                completion(data: data, statusCode: statusCode, error: nil)
+                completion(data: data, statusCode: statusCode, response:nil, error: nil)
             case .Error(let statusCode, let error):
-                completion(data: nil, statusCode: statusCode, error: error)
+                completion(data: nil, statusCode: statusCode, response:nil, error: error)
             }
         } else {
-            Alamofire.Manager.sharedInstance.request(request)
+             Alamofire.Manager.sharedInstance.request(request)
                 .response({(request: NSURLRequest, response: NSHTTPURLResponse?, data: AnyObject?, error: NSError?) -> () in
                     // Alamofire always sense the data param as an NSData? type, but we'll
                     // add a check just in case something changes in the future.
                     let statusCode = response?.statusCode
                     if let data = data as? NSData {
-                        completion(data: data, statusCode: statusCode, error: error)
+                        completion(data: data, statusCode: statusCode, response:response, error: error)
                     } else {
-                        completion(data: nil, statusCode: statusCode, error: error)
+                        completion(data: nil, statusCode: statusCode, response:response, error: error)
                     }
                 })
         }

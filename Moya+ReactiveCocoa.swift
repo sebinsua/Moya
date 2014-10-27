@@ -12,10 +12,12 @@ import ReactiveCocoa
 public class MoyaResponse {
     public let statusCode: Int
     public let data: NSData
-    
-    public init(statusCode: Int, data: NSData) {
+    public let response: NSURLResponse?
+
+    public init(statusCode: Int, data: NSData, response: NSURLResponse?) {
         self.statusCode = statusCode
         self.data = data
+        self.response = response
     }
 }
 
@@ -54,7 +56,7 @@ public class ReactiveMoyaProvider<T where T: MoyaTarget>: MoyaProvider<T> {
             }
             
             let signal = RACSignal.createSignal({ (subscriber) -> RACDisposable! in
-                self?.request(token, method: method, parameters: parameters) { (data, statusCode, error) -> () in
+                self?.request(token, method: method, parameters: parameters) { (data, statusCode, response, error) -> () in
                     if let error = error {
                         if let statusCode = statusCode {
                             subscriber.sendError(NSError(domain: error.domain, code: statusCode, userInfo: error.userInfo))
@@ -63,19 +65,19 @@ public class ReactiveMoyaProvider<T where T: MoyaTarget>: MoyaProvider<T> {
                         }
                     } else {
                         if let data = data {
-                            subscriber.sendNext(MoyaResponse(statusCode: statusCode!, data: data))
+                            subscriber.sendNext(MoyaResponse(statusCode: statusCode!, data: data, response: response))
                         }
                         subscriber.sendCompleted()
                     }
                 }
                 
-                return nil
-            }).finally({ [weak self] () -> Void in
-                if let weakSelf = self {
-                    objc_sync_enter(weakSelf)
-                    weakSelf.inflightRequests[endpoint] = nil
-                    objc_sync_exit(weakSelf)
-                }
+                return RACDisposable(block: { () -> Void in
+                    if let weakSelf = self {
+                        objc_sync_enter(weakSelf)
+                        weakSelf.inflightRequests[endpoint] = nil
+                        objc_sync_exit(weakSelf)
+                    }
+                })
             }).publish().autoconnect()
             
             if let weakSelf = self {
