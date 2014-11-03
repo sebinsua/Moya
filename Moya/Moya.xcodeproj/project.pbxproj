@@ -700,13 +700,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Spokes-gdobfcgjauxjhmarkumgsdhcsicx/Build/Products/Debug-iphoneos",
-					"/Users/sebinsua/Development/Spokes/External/ReactiveCocoa/build/Debug-iphoneos",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Spokes-gdobfcgjauxjhmarkumgsdhcsicx/Build/Products/Debug-iphoneos/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = Moya/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -725,8 +724,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Spokes-gdobfcgjauxjhmarkumgsdhcsicx/Build/Products/Debug-iphoneos",
-					"/Users/sebinsua/Development/Spokes/External/ReactiveCocoa/build/Debug-iphoneos",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Spokes-gdobfcgjauxjhmarkumgsdhcsicx/Build/Products/Debug-iphoneos/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = Moya/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
